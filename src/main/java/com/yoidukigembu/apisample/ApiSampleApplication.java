@@ -10,12 +10,12 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 @EnableAutoConfiguration
 public class ApiSampleApplication extends SpringBootServletInitializer {
 
-	public static void main(String... args) {
-		SpringApplication.run(ApiSampleApplication.class, args);
-	}
+    public static void main(String... args) {
+        SpringApplication.run(ApiSampleApplication.class, args);
+    }
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(ApiSampleApplication.class);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(ApiSampleApplication.class);
+    }
 }
