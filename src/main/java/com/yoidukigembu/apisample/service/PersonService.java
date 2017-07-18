@@ -4,7 +4,9 @@ import com.yoidukigembu.apisample.builder.SqlBuilder;
 import com.yoidukigembu.apisample.condition.SearchCondition;
 import com.yoidukigembu.apisample.db.entity.PersonEntity;
 import com.yoidukigembu.apisample.db.repository.PersonRepository;
+import com.yoidukigembu.apisample.json.request.person.ResisterRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -20,7 +22,9 @@ public class PersonService {
 
     private final PersonRepository repository;
 
-    public long register(PersonEntity entity) {
+    public long register(ResisterRequest request) {
+        PersonEntity entity = new PersonEntity();
+        BeanUtils.copyProperties(request, entity);
         return repository.save(entity).getId();
     }
 

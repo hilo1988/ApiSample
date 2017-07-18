@@ -2,6 +2,7 @@ package com.yoidukigembu.apisample.controller;
 
 import com.yoidukigembu.apisample.condition.SearchCondition;
 import com.yoidukigembu.apisample.db.entity.PersonEntity;
+import com.yoidukigembu.apisample.json.request.person.ResisterRequest;
 import com.yoidukigembu.apisample.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -25,8 +26,8 @@ public class PeopleController {
     private final PersonService service;
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public long register(@RequestBody PersonEntity entity) {
-        return service.register(entity);
+    public long register(@RequestBody ResisterRequest request) {
+        return service.register(request);
     }
 
     @RequestMapping(value = "list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
